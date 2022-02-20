@@ -5,7 +5,9 @@ import com.blog.rbm.entity.SysLog;
 import com.blog.rbm.mapper.SysLogMapper;
 import com.blog.rbm.service.SysLogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SysLogServiceImpl extends ServiceImpl<SysLogMapper,SysLog> implements SysLogService {
 
     @Autowired

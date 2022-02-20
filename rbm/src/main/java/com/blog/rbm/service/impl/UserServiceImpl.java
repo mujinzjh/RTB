@@ -6,9 +6,11 @@ import com.blog.rbm.entity.SysUser;
 import com.blog.rbm.mapper.UserMapper;
 import com.blog.rbm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl extends ServiceImpl<UserMapper,SysUser> implements UserService {
 
     @Autowired
