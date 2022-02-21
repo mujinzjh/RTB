@@ -140,5 +140,9 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "axios": "^0.26.0",
+    "http-proxy-middleware": "^2.0.3"
   }
 }
