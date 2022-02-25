@@ -1,13 +1,22 @@
+/*
+ * @Author: mujin
+ * @Date: 2022-02-20 16:21:18
+ * @LastEditTime: 2022-02-25 15:11:47
+ * @Description: 
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { Provider } from 'react-redux';
+import store from "./Redux";
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
