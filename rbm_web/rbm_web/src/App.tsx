@@ -3,27 +3,34 @@ import './App.css';
 import axios from "axios";
 import RouteConfig from "./Route/index";
 import { Component } from 'react'
+import { test1 } from './Services/serviceApis';
 
 export default class App extends Component {
-  constructor(props:any){
+  constructor(props: any) {
     super(props);
-    this.state = {date:new Date()}
+    this.state = { date: new Date() }
   };
-  componentDidMount(){
+  componentDidMount() {
+    this.getData();
   }
-  getData(){
-    axios.post('/api/rbm/login').then(res=>{
+  getData() {
+    test1().then((res: any) => {
       console.log(res);
-      
-    }).catch(err=>{
-      console.log(err);
+
     })
+    // axios.post('/api/rbm/login').then(res=>{
+    //   console.log(res);
+
+    // }).catch(err=>{
+    //   console.log(err);
+    // })
   }
   render() {
     return (
       <div>
-     <RouteConfig />
+        <RouteConfig />
       </div>
     )
   }
 }
+

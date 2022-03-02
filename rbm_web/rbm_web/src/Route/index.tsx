@@ -1,11 +1,11 @@
 /*
  * @Author: mujin
  * @Date: 2022-02-24 11:05:43
- * @LastEditTime: 2022-02-25 14:43:20
+ * @LastEditTime: 2022-03-01 11:42:01
  * @Description: 
  */
 
-import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import routerConfig, { baseMenu, menu } from './route'
 
