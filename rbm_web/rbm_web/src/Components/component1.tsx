@@ -1,7 +1,7 @@
 /*
  * @Author: mujin
  * @Date: 2022-02-24 11:04:23
- * @LastEditTime: 2022-03-01 13:58:03
+ * @LastEditTime: 2022-03-17 15:27:28
  * @Description: 
  */
 import { Component } from 'react'
@@ -16,4 +16,4 @@ const component1 = (props: any) => {
     </div>
   )
 }
-export default component1;
+export default withRouter(component1);

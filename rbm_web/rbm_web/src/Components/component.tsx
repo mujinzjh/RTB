@@ -1,29 +1,30 @@
 /*
  * @Author: mujin
  * @Date: 2022-02-24 11:03:40
- * @LastEditTime: 2022-03-01 13:56:25
+ * @LastEditTime: 2022-03-17 15:26:16
  * @Description: 
  */
 
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { setToken } from '../Redux/action';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useHistory } from 'react-router-dom';
+import history from '../Utils/history';
+
+// import history from "../Utils/history"
 
 // const _history = createBrowserHistory();
+
 
 const Component = (props: any) => {
 
   let { setToken } = props;
   console.log(props);
-  // console.log(_history);
-
-  // console.log(props);÷
 
 
   const onHandleClick = (e: any) => {
     e.preventDefault();
-    props.history.push('/page2');
+    history.push('/page2');
   }
 
   useEffect(() => {

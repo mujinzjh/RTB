@@ -1,9 +1,16 @@
+/*
+ * @Author: mujin
+ * @Date: 2022-03-01 11:17:13
+ * @LastEditTime: 2022-03-02 16:55:22
+ * @Description: 
+ */
 
 import './App.css';
 import axios from "axios";
 import RouteConfig from "./Route/index";
 import { Component } from 'react'
-import { test1 } from './Services/serviceApis';
+import { loginAPI } from './Services/serviceApis';
+import store from './Redux';
 
 export default class App extends Component {
   constructor(props: any) {
@@ -14,7 +21,7 @@ export default class App extends Component {
     this.getData();
   }
   getData() {
-    test1().then((res: any) => {
+    loginAPI().then((res: any) => {
       console.log(res);
 
     })
@@ -27,9 +34,9 @@ export default class App extends Component {
   }
   render() {
     return (
-      <div>
+      <>
         <RouteConfig />
-      </div>
+      </>
     )
   }
 }

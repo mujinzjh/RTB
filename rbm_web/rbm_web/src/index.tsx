@@ -1,7 +1,7 @@
 /*
  * @Author: mujin
  * @Date: 2022-02-20 16:21:18
- * @LastEditTime: 2022-02-25 15:11:47
+ * @LastEditTime: 2022-03-02 15:57:41
  * @Description: 
  */
 import React from 'react';
@@ -10,8 +10,16 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import store from "./Redux";
+import 'antd/dist/antd.css';
 
 import reportWebVitals from './reportWebVitals';
+import { message } from 'antd';
+
+message.config({
+  top: 100,
+  duration: 1,
+  maxCount: 1,
+});
 
 ReactDOM.render(
   <Provider store={store}>

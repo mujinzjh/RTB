@@ -1,14 +1,18 @@
 /*
  * @Author: mujin
  * @Date: 2022-03-01 15:26:55
- * @LastEditTime: 2022-03-02 13:51:39
+ * @LastEditTime: 2022-03-17 15:19:33
  * @Description: 
  */
 
 import { requestOptionsInterface } from "../Interface";
 import Constants from "../Constants";
 import qs from 'qs';
+import history from "../Utils/history"
 
+
+import { message } from 'antd'
+import store from "../Redux";
 
 const defaultConfig: any = {
   credentials: "include",
@@ -20,22 +24,7 @@ const handleOptions = (option: requestOptionsInterface, _option = {}) => {
   return Object.assign(defaultConfig, option);
 }
 
-const handleParams = (option: requestOptionsInterface) => {
-  let params, method = option.method.toLocaleUpperCase();
-  if (method == "GET") {
-    if (option.hasOwnProperty('param')) {
-
-    } else {
-      params = '';
-    }
-  } else {
-    params = option;
-  }
-  return params;
-}
-
-
-const fetchUtilHttp = (options: requestOptionsInterface): any => {
+const fetchUtilHttp = (options: requestOptionsInterface): Promise<number> => {
   let url: string = Constants.BASE_URL + options.url;
 
   if (options.hasOwnProperty('params')) {
@@ -66,13 +55,43 @@ const fetchUtilHttp = (options: requestOptionsInterface): any => {
     }
   }
 
-  return fetch(url, _options).then(res => {
-    console.log(res, '11');
-    return res.json();
-  }).catch(err => {
-    return Promise.reject(err);
-  })
+  return new Promise((resolve, reject) => {
+    fetch(url, _options).then(res => {
+      const { status, statusText } = res;
+      // history.push('/page2')
+      // if (status == Constants.HTTP_SUCCESS_CODE) {
+      //   history.push('/page2');
+      //   return res.json().then(data => {
+      //     if (data.code == '10004') {
+      //       logOut();
+      //       history.push('/login');
+      //     }
+      //     resolve(data);
+      //   }).catch(err => {
+      //     reject(err);
+      //   })
+      // }
+      // if (status == Constants.TOKEN_ISVAILD) {
+      //   logOut();
+      //   store.dispatch({ type: 'PATH', data: '/page2' })
+      // }
+      // if (String(status).includes('5')) {
+      //   services();
+      // }
+    }).catch(err => {
+      reject(err);
+    })
+  });
+
 
 };
+
+const logOut = () => {
+  message.error('登录超时！请重新登录');
+}
+
+const services = () => {
+  message.error("网络或服务异常");
+}
 
 export default fetchUtilHttp;

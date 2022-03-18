@@ -1,12 +1,18 @@
 /*
  * @Author: mujin
  * @Date: 2022-03-02 11:52:07
- * @LastEditTime: 2022-03-02 11:58:24
+ * @LastEditTime: 2022-03-02 15:10:12
  * @Description: 
  */
 
 import fetchUtilHttp from "./request"
-import { test } from './apis'
-export const test1 = () => {
-  return fetchUtilHttp(test())
+import { login } from './apis'
+
+/**
+ * @method:  登录
+ * @param {*}
+ * @return {*}
+ */
+export const loginAPI = (): Promise<number> => {
+  return fetchUtilHttp(login())
 }

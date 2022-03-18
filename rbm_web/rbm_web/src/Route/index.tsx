@@ -1,11 +1,11 @@
 /*
  * @Author: mujin
  * @Date: 2022-02-24 11:05:43
- * @LastEditTime: 2022-03-01 11:42:01
+ * @LastEditTime: 2022-03-13 22:07:37
  * @Description: 
  */
 
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { Router, Route, Switch, Redirect, withRouter } from "react-router-dom";
 
 import routerConfig, { baseMenu, menu } from './route'
 
@@ -13,6 +13,10 @@ import AllComponents from "../Components"
 import RouterWrapper from "./RouterWrapper";
 import React from "react";
 import { checkLogin } from '../Utils'
+import Page1 from '../Components/component';
+import Page2 from '../Components/component1';
+
+import history from "../Utils/history"
 
 const getToken = (): any | null => {
   return '' || null;
@@ -68,14 +72,20 @@ const createRoute = (key: string) => {
 
 }
 
-export default () => (
-  <Router>
-    <Switch>
-      {Object.keys(routerConfig).map((key) => { return createRoute(key) })}
-      <Route exact path="/" render={() =>
-        <Redirect to="/page1" />
-      }>
-      </Route>
-    </Switch>
-  </Router >
-)
+const route1 = () => {
+  return (
+    <Router history={history}>
+      <Switch>
+        {Object.keys(routerConfig).map((key) => { return createRoute(key) })}
+        {/* <Route path="/page1" component={Page1} exact />
+        <Route path="/page2" component={Page2} /> */}
+        <Route path="/" render={() =>
+          <Redirect to="/page1" push />
+        } >
+        </Route>
+      </Switch>
+    </Router >
+  );
+}
+
+export default route1;
