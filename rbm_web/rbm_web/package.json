@@ -135,5 +135,9 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "history": "^4.1.0",
+    "react-router-dom": "^5.3.0"
   }
 }
