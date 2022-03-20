@@ -1,7 +1,7 @@
 /*
  * @Author: mujin
  * @Date: 2022-03-01 15:26:55
- * @LastEditTime: 2022-03-17 15:19:33
+ * @LastEditTime: 2022-03-20 21:30:09
  * @Description: 
  */
 
@@ -12,7 +12,6 @@ import history from "../Utils/history"
 
 
 import { message } from 'antd'
-import store from "../Redux";
 
 const defaultConfig: any = {
   credentials: "include",
@@ -58,26 +57,22 @@ const fetchUtilHttp = (options: requestOptionsInterface): Promise<number> => {
   return new Promise((resolve, reject) => {
     fetch(url, _options).then(res => {
       const { status, statusText } = res;
-      // history.push('/page2')
-      // if (status == Constants.HTTP_SUCCESS_CODE) {
-      //   history.push('/page2');
-      //   return res.json().then(data => {
-      //     if (data.code == '10004') {
-      //       logOut();
-      //       history.push('/login');
-      //     }
-      //     resolve(data);
-      //   }).catch(err => {
-      //     reject(err);
-      //   })
-      // }
-      // if (status == Constants.TOKEN_ISVAILD) {
-      //   logOut();
-      //   store.dispatch({ type: 'PATH', data: '/page2' })
-      // }
-      // if (String(status).includes('5')) {
-      //   services();
-      // }
+      if (status == Constants.HTTP_SUCCESS_CODE) {
+        return res.json().then(data => {
+          if (data.code == '10004') {
+            logOut();
+          }
+          resolve(data);
+        }).catch(err => {
+          reject(err);
+        })
+      }
+      if (status == Constants.TOKEN_ISVAILD) {
+        logOut();
+      }
+      if (String(status).includes('5')) {
+        services();
+      }
     }).catch(err => {
       reject(err);
     })
@@ -87,6 +82,7 @@ const fetchUtilHttp = (options: requestOptionsInterface): Promise<number> => {
 };
 
 const logOut = () => {
+  history.push('/login');
   message.error('登录超时！请重新登录');
 }
 
