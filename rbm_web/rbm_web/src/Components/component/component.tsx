@@ -1,19 +1,16 @@
 /*
  * @Author: mujin
  * @Date: 2022-02-24 11:03:40
- * @LastEditTime: 2022-03-17 15:26:16
+ * @LastEditTime: 2022-03-22 14:58:28
  * @Description: 
  */
 
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { setToken } from '../Redux/action';
-import { withRouter, useHistory } from 'react-router-dom';
-import history from '../Utils/history';
-
-// import history from "../Utils/history"
-
-// const _history = createBrowserHistory();
+import { setToken } from '../../Redux/action';
+import { withRouter } from 'react-router-dom';
+import history from '../../Utils/history';
+import './index.scss'
 
 
 const Component = (props: any) => {
@@ -35,7 +32,10 @@ const Component = (props: any) => {
 
   return (<div>
     wqeqwe12312312312
-    <div>token:{props.token || ''}</div>
+    <div className='token'>
+      <label>token:</label>
+      <span>{props.token || ''}</span>
+    </div>
     <button onClick={onHandleClick}>ceshi</button>
   </div>)
 }

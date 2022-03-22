@@ -1,11 +1,11 @@
 /*
  * @Author: mujin
  * @Date: 2022-02-24 11:05:43
- * @LastEditTime: 2022-03-13 22:07:37
+ * @LastEditTime: 2022-03-22 14:57:43
  * @Description: 
  */
 
-import { Router, Route, Switch, Redirect, withRouter } from "react-router-dom";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
 
 import routerConfig, { baseMenu, menu } from './route'
 
@@ -13,8 +13,6 @@ import AllComponents from "../Components"
 import RouterWrapper from "./RouterWrapper";
 import React from "react";
 import { checkLogin } from '../Utils'
-import Page1 from '../Components/component';
-import Page2 from '../Components/component1';
 
 import history from "../Utils/history"
 
@@ -77,8 +75,6 @@ const route1 = () => {
     <Router history={history}>
       <Switch>
         {Object.keys(routerConfig).map((key) => { return createRoute(key) })}
-        {/* <Route path="/page1" component={Page1} exact />
-        <Route path="/page2" component={Page2} /> */}
         <Route path="/" render={() =>
           <Redirect to="/page1" push />
         } >
