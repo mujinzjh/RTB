@@ -1,7 +1,7 @@
 /*
  * @Author: mujin
  * @Date: 2022-02-24 11:05:43
- * @LastEditTime: 2022-03-22 14:57:43
+ * @LastEditTime: 2022-03-23 10:17:46
  * @Description: 
  */
 
@@ -9,7 +9,7 @@ import { Router, Route, Switch, Redirect } from "react-router-dom";
 
 import routerConfig, { baseMenu, menu } from './route'
 
-import AllComponents from "../Components"
+import AllComponents from "../Views/index"
 import RouterWrapper from "./RouterWrapper";
 import React from "react";
 import { checkLogin } from '../Utils'
@@ -72,15 +72,13 @@ const createRoute = (key: string) => {
 
 const route1 = () => {
   return (
-    <Router history={history}>
-      <Switch>
-        {Object.keys(routerConfig).map((key) => { return createRoute(key) })}
-        <Route path="/" render={() =>
-          <Redirect to="/page1" push />
-        } >
-        </Route>
-      </Switch>
-    </Router >
+    <Switch>
+      {Object.keys(routerConfig).map((key) => { return createRoute(key) })}
+      <Route path="/Home" render={() =>
+        <Redirect to="/Home/page1" />
+      } >
+      </Route>
+    </Switch>
   );
 }
 

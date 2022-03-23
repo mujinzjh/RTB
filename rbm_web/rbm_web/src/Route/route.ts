@@ -1,7 +1,7 @@
 /*
  * @Author: mujin
  * @Date: 2022-02-24 15:10:37
- * @LastEditTime: 2022-02-25 14:51:50
+ * @LastEditTime: 2022-03-22 17:36:00
  * @Description: 
  */
 
@@ -26,13 +26,13 @@ const menus: {
 } = {
   menus: [
     {
-      key: '/page1',
+      key: '/Home/page1',
       title: '测试',
       name: 'page1',
       component: "Page1",
     },
     {
-      key: '/page2',
+      key: '/Home/page2',
       title: 'test',
       name: 'page2',
       component: "Page2"

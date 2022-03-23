@@ -1,0 +1,39 @@
+@import './variable.scss';
+
+.home-layout {
+  .ant-layout-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #000;
+    padding: 0;
+    color: $-header-color;
+  }
+
+  main {
+    margin-top: 64px;
+
+    .all-layout-content {
+      min-height: calc(100vh - 134px);
+      background: $-main-bgColor;
+      margin: 0 auto;
+      width: 90%;
+      padding: 10px 20px !important;
+      max-width: 1200px;
+      border-radius: 10px;
+    }
+  }
+
+  .ant-layout-footer {
+    background: transparent;
+  }
+}
+
+
+//媒体查询
+@media only screen and (min-width: 993px) {
+  .all-layout-content {
+    width: 90%;
+    max-width: 1120px;
+  }
+}

@@ -1,7 +1,7 @@
 /*
  * @Author: mujin
  * @Date: 2022-02-24 11:03:40
- * @LastEditTime: 2022-03-22 14:58:28
+ * @LastEditTime: 2022-03-22 17:39:03
  * @Description: 
  */
 
@@ -21,7 +21,7 @@ const Component = (props: any) => {
 
   const onHandleClick = (e: any) => {
     e.preventDefault();
-    history.push('/page2');
+    history.push('/Home/page2');
   }
 
   useEffect(() => {
