@@ -1,7 +1,7 @@
 /*
  * @Author: mujin
  * @Date: 2022-02-24 15:10:37
- * @LastEditTime: 2022-03-22 17:36:00
+ * @LastEditTime: 2022-03-23 14:13:33
  * @Description: 
  */
 
@@ -12,6 +12,7 @@ export interface baseMenu {
   component?: string,
   login?: boolean,
   name: string,
+  redirect?: string
 }
 
 export interface menu extends baseMenu {
@@ -19,27 +20,41 @@ export interface menu extends baseMenu {
 }
 
 
-const menus: {
+const routes: {
   menus: menu[],
   others?: menu[] | [],
   [index: string]: any;
 } = {
   menus: [
     {
-      key: '/Home/page1',
-      title: '测试',
-      name: 'page1',
-      component: "Page1",
+      key: '/',
+      title: '',
+      name: '',
+      redirect: '/Home'
     },
     {
-      key: '/Home/page2',
-      title: 'test',
-      name: 'page2',
-      component: "Page2"
+      key: '/Home',
+      title: '首页',
+      name: 'home',
+      component: "Home",
+      children: [
+        {
+          key: '/Home/page1',
+          title: '测试',
+          name: 'page1',
+          component: "Page1",
+        },
+        {
+          key: '/Home/page2',
+          title: 'test',
+          name: 'page2',
+          component: "Page2"
+        }
+      ]
     },
+
   ],
-  others: []
 }
 
-export default menus;
+export default routes;
 

@@ -6,7 +6,9 @@
  */
 import Page1 from "../Components/component/component";
 import Page2 from "../Components/component1";
+import Home from "./Layout/Home/Home";
 export default {
   Page1,
   Page2,
+  Home
 } as any;

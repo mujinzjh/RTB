@@ -1,7 +1,7 @@
 /*
  * @Author: mujin
  * @Date: 2022-02-24 11:05:43
- * @LastEditTime: 2022-03-23 10:17:46
+ * @LastEditTime: 2022-03-23 14:33:20
  * @Description: 
  */
 
@@ -14,7 +14,6 @@ import RouterWrapper from "./RouterWrapper";
 import React from "react";
 import { checkLogin } from '../Utils'
 
-import history from "../Utils/history"
 
 const getToken = (): any | null => {
   return '' || null;
@@ -25,7 +24,7 @@ const menuList = ['login']
 const authLogin = (wrapper: React.ReactElement, route: baseMenu) => {
   const token = getToken();
   if (!checkLogin(token)) {
-    return (<Redirect to={'/page2'} />)
+    return (<Redirect to={'/login'} />)
   }
   return requireAuth(wrapper, route);
 };
@@ -44,14 +43,13 @@ const getAuth = (route: menu): boolean => {
 }
 
 const createMenu = (r: menu) => {
-  const route = (r: baseMenu) => {
+  const route = (r: menu) => {
     const Component = r.component && AllComponents[r.component];
     return (
       <Route
         key={r.key}
-        exact
         path={r.key}
-        render={(props) => {
+        render={props => {
           const wrapper = (<RouterWrapper {...{ ...props, Comp: Component, route: r }} />)
           return r.login ? authLogin(wrapper, r) : wrapper;
         }}
@@ -59,27 +57,20 @@ const createMenu = (r: menu) => {
     );
   };
 
-  const subRoute = (r: menu) => {
-    r.children && r.children.map((subR: menu) => { subR.children ? subRoute(subR) : route(subR) })
+  const redirectRoute = (r: menu) => {
+    return (<Redirect path={r.key} key={r.key} exact to={{ pathname: r.redirect }} />)
   }
-  return r.component ? route(r) : subRoute(r);
-}
-
-const createRoute = (key: string) => {
-  return routerConfig[key] && routerConfig[key].length && routerConfig[key].map(createMenu);
+  return r.redirect ? redirectRoute(r) : route(r);
 
 }
 
-const route1 = () => {
+const routes = (props: any) => {
+  let { routers } = props;
   return (
     <Switch>
-      {Object.keys(routerConfig).map((key) => { return createRoute(key) })}
-      <Route path="/Home" render={() =>
-        <Redirect to="/Home/page1" />
-      } >
-      </Route>
+      {routers.map((key: menu) => { return createMenu(key) })}
     </Switch>
   );
 }
 
-export default route1;
+export default routes;
