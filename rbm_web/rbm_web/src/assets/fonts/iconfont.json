@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1309",
+      "name": "退出",
+      "font_class": "tuichu",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "835900",
+      "name": "个人中心",
+      "font_class": "gerenzhongxin",
+      "unicode": "e8e9",
+      "unicode_decimal": 59625
+    },
+    {
+      "icon_id": "7423609",
+      "name": "内容管理",
+      "font_class": "neirongguanli",
+      "unicode": "e814",
+      "unicode_decimal": 59412
+    },
+    {
       "icon_id": "3315084",
       "name": "博客园",
       "font_class": "bokeyuan",

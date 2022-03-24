@@ -1,7 +1,7 @@
 /*
  * @Author: mujin
  * @Date: 2022-02-24 15:10:37
- * @LastEditTime: 2022-03-24 10:32:37
+ * @LastEditTime: 2022-03-24 14:15:02
  * @Description: 
  */
 
@@ -12,7 +12,8 @@ export interface baseMenu {
   component?: string,
   login?: boolean,
   name: string,
-  redirect?: string
+  redirect?: string,
+  hiddenMenu?: boolean
 }
 
 export interface menu extends baseMenu {
@@ -51,9 +52,26 @@ const routes: {
           name: 'blog',
           icon: 'boke',
           component: "Blog"
+        },
+        {
+          key: '/Home/mine',
+          title: '个人中心',
+          name: 'mine',
+          hiddenMenu: true,
+          icon: 'gerenzhongxin',
+          component: "Mine",
+        },
+        {
+          key: '/Home/content',
+          title: '内容管理',
+          name: 'content',
+          hiddenMenu: true,
+          icon: 'neirongguanli',
+          component: "Content",
         }
       ]
     },
+
 
   ],
 }

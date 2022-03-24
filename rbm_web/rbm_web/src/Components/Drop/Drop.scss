@@ -1,0 +1,12 @@
+@import '../../Styles/variable.scss';
+
+.drop-menu-content {
+  .icon-content {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-left: 4px;
+    }
+  }
+}
