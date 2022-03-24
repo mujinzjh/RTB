@@ -1,6 +1,4 @@
-body {
-  background: #fff;
-}
+@import './assets/fonts/iconfont.css';
 
 .App {
   text-align: center;

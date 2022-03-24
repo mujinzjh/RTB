@@ -1,7 +1,7 @@
 /*
  * @Author: mujin
  * @Date: 2022-03-22 15:11:20
- * @LastEditTime: 2022-03-23 17:13:00
+ * @LastEditTime: 2022-03-24 11:26:35
  * @Description: 
  */
 import { Layout } from 'antd';
@@ -17,9 +17,7 @@ const Home = (props: any) => {
 
   return (
     < Layout className="layout home-layout" >
-      <Header>
-        <CustomHead></CustomHead>
-      </Header>
+      <CustomHead routers={children}></CustomHead>
       <Content style={{ padding: '0 50px' }}>
         <div className="all-layout-content">
           <RouteConfig routers={children} />

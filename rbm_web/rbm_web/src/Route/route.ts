@@ -1,7 +1,7 @@
 /*
  * @Author: mujin
  * @Date: 2022-02-24 15:10:37
- * @LastEditTime: 2022-03-23 17:14:17
+ * @LastEditTime: 2022-03-24 10:32:37
  * @Description: 
  */
 
@@ -30,25 +30,27 @@ const routes: {
       key: '/',
       title: '',
       name: '',
-      redirect: '/Home/page1'
+      redirect: '/Home/main'
     },
     {
       key: '/Home',
-      title: '首页',
+      title: '',
       name: 'home',
       component: "Home",
       children: [
         {
-          key: '/Home/page1',
-          title: '测试',
-          name: 'page1',
-          component: "Page1",
+          key: '/Home/main',
+          title: '首页',
+          name: 'main',
+          icon: 'home',
+          component: "Main",
         },
         {
-          key: '/Home/page2',
-          title: 'test',
-          name: 'page2',
-          component: "Page2"
+          key: '/Home/blog',
+          title: '博客',
+          name: 'blog',
+          icon: 'boke',
+          component: "Blog"
         }
       ]
     },

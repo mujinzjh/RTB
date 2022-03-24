@@ -1,12 +1,12 @@
 @import '../../../Styles/variable.scss';
 
-.ant-layout-header {
-  position: fixed;
-  top: 0;
-  width: 100;
-}
+.ant-layout-header {}
 
 .header-layout {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 64px;
   display: flex;
   align-items: center;
 
@@ -20,5 +20,14 @@
 
   .menu-content {
     flex: 1;
+
+    .content {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-left: 4px;
+      }
+    }
   }
 }
