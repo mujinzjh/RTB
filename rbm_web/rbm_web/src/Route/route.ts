@@ -1,7 +1,7 @@
 /*
  * @Author: mujin
  * @Date: 2022-02-24 15:10:37
- * @LastEditTime: 2022-03-23 14:13:33
+ * @LastEditTime: 2022-03-23 17:14:17
  * @Description: 
  */
 
@@ -30,7 +30,7 @@ const routes: {
       key: '/',
       title: '',
       name: '',
-      redirect: '/Home'
+      redirect: '/Home/page1'
     },
     {
       key: '/Home',

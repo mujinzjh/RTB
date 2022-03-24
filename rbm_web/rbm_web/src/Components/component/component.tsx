@@ -1,7 +1,7 @@
 /*
  * @Author: mujin
  * @Date: 2022-02-24 11:03:40
- * @LastEditTime: 2022-03-22 17:39:03
+ * @LastEditTime: 2022-03-23 16:47:28
  * @Description: 
  */
 
@@ -10,6 +10,7 @@ import { connect } from 'react-redux'
 import { setToken } from '../../Redux/action';
 import { withRouter } from 'react-router-dom';
 import history from '../../Utils/history';
+import logo from '../../assets/imgs/logo.png'
 import './index.scss'
 
 
@@ -33,6 +34,7 @@ const Component = (props: any) => {
   return (<div>
     wqeqwe12312312312
     <div className='token'>
+      <img src={logo} alt="" />
       <label>token:</label>
       <span>{props.token || ''}</span>
     </div>

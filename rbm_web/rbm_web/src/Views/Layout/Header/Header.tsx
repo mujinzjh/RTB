@@ -1,7 +1,7 @@
 /*
  * @Author: mujin
  * @Date: 2022-03-22 15:27:44
- * @LastEditTime: 2022-03-22 17:37:03
+ * @LastEditTime: 2022-03-23 17:03:03
  * @Description: 
  */
 import { Menu } from 'antd';
@@ -19,8 +19,9 @@ const onMenuClick: MenuClickEventHandler = ({ item, key, keyPath, domEvent }) =>
 const Header = (props: any) => {
   return (
     <div className="header-layout">
-      <div className="logo" />
-      <div>
+      <div className="logo">
+      </div>
+      <div className='menu-content'>
         <Menu mode="horizontal" onClick={onMenuClick}>
           <Menu.Item key="mail">
             Navigation One
