@@ -21,6 +21,10 @@
   .menu-content {
     flex: 1;
 
+    .ant-menu {
+      border-bottom: none;
+    }
+
     .content {
       display: flex;
       align-items: center;
