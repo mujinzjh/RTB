@@ -71,7 +71,13 @@ const routes: {
         }
       ]
     },
-
+    {
+      key: '/login',
+      title: '登录',
+      name: 'login',
+      component: "Login",
+      children: []
+    },
 
   ],
 }

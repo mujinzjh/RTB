@@ -9,10 +9,12 @@ import Main from '../Views/Pages/home/home';
 import Blog from '../Views/Pages/Blog/Blog';
 import Mine from "../Views/Pages/Mine/index";
 import Content from "../Views/Pages/Content/index";
+import Login from '../Views/Login/index'
 export default {
   Main,
   Blog,
   Home,
   Mine,
-  Content
+  Content,
+  Login
 } as any;

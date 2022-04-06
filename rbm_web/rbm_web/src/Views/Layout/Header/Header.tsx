@@ -12,12 +12,11 @@ import history from '../../../Utils/history';
 import './header.scss';
 import CustomDrop from '../../../Components/Drop/Drop';
 import _ from 'lodash';
+import store from '../../../Redux';
 
 
-const { SubMenu } = Menu;
+// const { SubMenu } = Menu;
 const onMenuClick: MenuClickEventHandler = ({ item, key, keyPath, domEvent }) => {
-  console.log(key);
-
   history.push(key);
 };
 const isExistMenuRoute = (_routers: string | any[], path: any) => {
@@ -37,7 +36,7 @@ const Header = (props: any) => {
     return !item.hiddenMenu;
   });
 
-
+  const { token } = store.getState();
 
   return (
     <div className="header-layout">
@@ -49,12 +48,17 @@ const Header = (props: any) => {
         }
       </div>
       <div className='user-info'>
-        <Button>登录</Button>
-        <Button>注册</Button>
-        <CustomDrop></CustomDrop>
+        {
+          !token ? <div><Button className='button-group' onClick={() => { onHandleClick('/login') }}>登录</Button>
+            <Button className='button-group' onClick={() => { onHandleClick('/regis') }}>注册</Button></div> : <CustomDrop></CustomDrop>
+        }
       </div>
     </div>
   )
+}
+
+const onHandleClick = (name: string) => {
+  history.push(name);
 }
 
 const createNavMenu = (routers: Array<menu>, path: string) => {
@@ -76,6 +80,5 @@ const createNavMenu = (routers: Array<menu>, path: string) => {
     }
   </Menu>)
 }
-
 
 export default withRouter(Header);
