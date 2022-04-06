@@ -13,6 +13,6 @@ import { login } from './apis'
  * @param {*}
  * @return {*}
  */
-export const loginAPI = (): Promise<number> => {
-  return fetchUtilHttp(login())
+export const loginAPI = (data): Promise<number> => {
+  return fetchUtilHttp(login(data))
 }

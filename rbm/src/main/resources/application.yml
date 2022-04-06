@@ -22,7 +22,7 @@ spring:
 mybatis-plus:
   global-config:
     banner: false
-  type-aliases-package: com.ms.hms.entity
+  type-aliases-package: com.blog.rbm.entity
   mapper-locations: classpath:mapper/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
