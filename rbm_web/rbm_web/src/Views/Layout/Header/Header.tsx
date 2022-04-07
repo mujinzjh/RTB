@@ -43,7 +43,7 @@ const Header = (props: any) => {
 
   return (
     <div className="header-layout">
-      <div className="logo">
+      <div className="logo" onClick={()=>{onHandleClick('/home/main')}}>
       </div>
       <div className='menu-content'>
         {

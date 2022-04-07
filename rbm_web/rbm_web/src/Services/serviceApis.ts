@@ -6,7 +6,7 @@
  */
 
 import fetchUtilHttp from "./request"
-import { login } from './apis'
+import { login, regis } from './apis'
 
 /**
  * @method:  登录
@@ -16,4 +16,8 @@ import { login } from './apis'
 export const loginAPI = (data: Object
 ): Promise<number> => {
   return fetchUtilHttp(login(data))
+}
+
+export const regisAPI = (data: Object): Promise<number> => {
+  return fetchUtilHttp(regis(data))
 }

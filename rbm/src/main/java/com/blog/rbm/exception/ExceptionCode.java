@@ -15,7 +15,8 @@ public enum ExceptionCode implements BaseR {
     TOKEN_IS_INVALID("10004", "no token", ""),
     PARAMTER_ERROR("10006", "param error", ""),
     ROLE_NOT_EXIST("10007","not exist","角色不存在"),
-    ACCOUNT_OR_PASSWORD_ERROR("10005", "pwd error", "用户名或密码错误");
+    ACCOUNT_OR_PASSWORD_ERROR("10005", "pwd error", "用户名或密码错误"),
+    USER_EXIST("10008","user exist","用户已存在");
 
 
     private final String code;

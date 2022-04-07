@@ -24,6 +24,13 @@
       .ant-btn {
         width: 100%;
       }
+
+      .regis-user {
+        display: flex;
+        justify-content: end;
+        cursor: pointer;
+        margin-bottom: 8px;
+      }
     }
 
     h2 {

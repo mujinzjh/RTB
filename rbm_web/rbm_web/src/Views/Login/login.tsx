@@ -28,6 +28,9 @@ const loginSubmit = async () => {
 }
 
 const formRef: React.RefObject<FormInstance<any>> = React.createRef();
+const goRegis = () => {
+  history.push('/regis');
+}
 const Login = (props: any) => {
   return (
     <div className="login-content">
@@ -58,6 +61,10 @@ const Login = (props: any) => {
           >
             <Input.Password />
           </Form.Item>
+
+
+          <span className='regis-user' onClick={goRegis}>注册用户</span>
+
 
           <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
             <Button type="primary" htmlType="submit">

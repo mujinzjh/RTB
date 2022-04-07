@@ -7,6 +7,7 @@ import com.blog.rbm.common.result.R;
 import com.blog.rbm.common.utils.TokenUtils;
 import com.blog.rbm.entity.SysUser;
 import com.blog.rbm.entity.param.LoginParam;
+import com.blog.rbm.entity.param.UserParam;
 import com.blog.rbm.exception.ExceptionCode;
 import com.blog.rbm.exception.ServiceException;
 import com.blog.rbm.service.UserService;
@@ -46,4 +47,10 @@ public class LoginController {
         resultMap.put("token",token);
         return R.ok().data(resultMap);
     }
+
+    @PostMapping(value = "/regis")
+    public R regis(@RequestBody UserParam userParamaram,HttpServletRequest request){
+        return userService.createUser(userParamaram);
+    }
+
 }

@@ -1,11 +1,26 @@
 import React from 'react';
-import { Form, Input, Button, FormInstance } from 'antd';
+import { Form, Input, Button, FormInstance, message } from 'antd';
 import Constants from '../../Constants';
 import history from '../../Utils/history';
+import { regisAPI } from '../../Services/serviceApis';
 
+const regisUser = async () => {
+  const { account, password } = formRef.current && formRef.current.getFieldsValue(true);
+  regisAPI({
+    username: account, password
+  }).then((res: any) => {
+    const { code } = res;
+    if (code == Constants.HTTP_SUCCESS_CODE) {
+      message.success('注册成功，请登录！');
+      history.push('/login');
+    } else {
+      const { desc } = res;
+      message.error(desc);
+    }
+  }).catch(err => {
+    console.log(err);
 
-const loginSubmit = async () => {
-
+  })
 }
 
 const formRef: React.RefObject<FormInstance<any>> = React.createRef();
@@ -21,7 +36,7 @@ const Regis = (props: any) => {
           labelCol={{ span: 6 }}
           wrapperCol={{ span: 18 }}
           initialValues={{ remember: true }}
-          onFinish={loginSubmit}
+          onFinish={regisUser}
           autoComplete="off"
         >
           <Form.Item

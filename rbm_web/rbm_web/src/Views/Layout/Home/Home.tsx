@@ -10,16 +10,21 @@ import CustomHead from '../Header/Header';
 import CustomSwiper from '../../../Components/Swiper'
 import './home.scss'
 import RouteConfig from "../../../Route/index";
+import { includes } from 'lodash';
 const { Content, Footer } = Layout;
 
 const Home = (props: any) => {
   let { children } = props;
+  let flag = props.location.pathname.includes('main');
+  console.log(flag);
 
   return (
     < Layout className="layout home-layout" >
       <CustomHead routers={children}></CustomHead>
       <Content style={{ padding: '0 50px' }}>
-        <CustomSwiper></CustomSwiper>
+        {
+          flag ? <CustomSwiper></CustomSwiper> : <></>
+        }
         <div className="all-layout-content">
           <RouteConfig routers={children} />
         </div>

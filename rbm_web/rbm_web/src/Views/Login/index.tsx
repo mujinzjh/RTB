@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import { loginAPI } from '../../Services/serviceApis';
+import { Component } from 'react'
 import './index.scss';
 import Login from './login';
 import Regis from './regis';

@@ -14,3 +14,11 @@ export const login = (data: any): apiInterface => {
     body: data
   }
 }
+
+export const regis = (data: any): apiInterface => {
+  return {
+    url: '/rbm/regis',
+    method: 'POST',
+    body: data
+  }
+}
