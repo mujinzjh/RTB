@@ -1,66 +1,40 @@
 import React, { Component } from 'react'
 import { loginAPI } from '../../Services/serviceApis';
 import './index.scss';
-import { Form, Input, Button } from 'antd';
-import history from '../../Utils/history';
-class Login extends Component {
+import Login from './login';
+import Regis from './regis';
+
+interface stateInterface {
+  isLogin: boolean | undefined
+}
+class Index extends Component<any, stateInterface> {
   constructor(props: any) {
     super(props);
-    this.loginSubmit = this.loginSubmit.bind(this);
+    this.state = {
+      isLogin: true
+    }
   }
-  loginSubmit() {
-    loginAPI().then((result: any) => {
-      const { code } = result;
-      if (code == 200) {
-        history.push('/Home/main');
-      }
-
-    }).catch((err: any) => {
-      console.log(err);
-
+  componentDidMount() {
+    const flag: boolean = this.props && this.props.route && this.props.route.name == 'login';
+    this.setState({
+      isLogin: flag,
     });
+    this.createForm = this.createForm.bind(this);
+  }
+  createForm() {
+    if (this.state.isLogin) {
+      return (
+        <Login></Login>
+      )
+    } else {
+      return (
+        <Regis></Regis>
+      )
+    }
   }
   render() {
-    return (
-      <div className="login-content">
-        <div className='from-container'>
-          <h2> 登录 </h2>
-          <Form
-            name="basic"
-            className='from-content'
-            labelCol={{ span: 6 }}
-            wrapperCol={{ span: 18 }}
-            initialValues={{ remember: true }}
-            onFinish={this.loginSubmit}
-            autoComplete="off"
-          >
-            <Form.Item
-              label="账号"
-              name="username"
-              rules={[{ required: true, message: '请输入用户名!' }]}
-            >
-              <Input />
-            </Form.Item>
-
-            <Form.Item
-              label="密码"
-              name="password"
-              rules={[{ required: true, message: '请输入密码!' }]}
-            >
-              <Input.Password />
-            </Form.Item>
-
-            <Form.Item wrapperCol={{ offset: 6, span: 18 }}>
-              <Button type="primary" htmlType="submit">
-                Submit
-              </Button>
-            </Form.Item>
-          </Form>
-        </div>
-
-      </div>
-    )
+    return this.createForm();
   }
 }
 
-export default Login;
+export default Index;

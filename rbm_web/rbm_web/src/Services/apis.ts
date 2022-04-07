@@ -7,10 +7,10 @@
 
 import { apiInterface } from "../Interface"
 
-export const login = (data): apiInterface => {
+export const login = (data: any): apiInterface => {
   return {
     url: '/rbm/login',
     method: 'POST',
-    data
+    body: data
   }
 }

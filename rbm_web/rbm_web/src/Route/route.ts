@@ -78,6 +78,13 @@ const routes: {
       component: "Login",
       children: []
     },
+    {
+      key: '/regis',
+      title: '注册',
+      name: 'regis',
+      component: "Login",
+      children: []
+    },
 
   ],
 }

@@ -36,7 +36,10 @@ const Header = (props: any) => {
     return !item.hiddenMenu;
   });
 
-  const { token } = store.getState();
+  let { token } = store.getState();
+
+  token = token || sessionStorage.getItem('token');
+
 
   return (
     <div className="header-layout">

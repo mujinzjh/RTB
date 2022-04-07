@@ -3,8 +3,9 @@ import { DownOutlined } from '@ant-design/icons';
 import history from "../../Utils/history";
 
 import './Drop.scss';
-const onDropClick = (props: any) => {
+const onDropClick = async (props: any) => {
   if (props.key == 3) {
+    await sessionStorage.clear();
     history.push('/Home/main');
   } else {
     console.log(props);
@@ -37,10 +38,13 @@ const menu = (
 );
 
 const Drop = (props: any) => {
+  const userInfo: string | null = sessionStorage.getItem('userInfo');
+  let username: string = userInfo ? JSON.parse(userInfo).username : '系统管理员';
+
   return (
     <Dropdown overlay={menu} trigger={['click']} className="drop-content">
       <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-        Click me <DownOutlined />
+        {username} <DownOutlined />
       </a>
     </Dropdown>
   );
