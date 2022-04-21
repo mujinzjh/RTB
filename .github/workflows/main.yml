@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: 切换目录
-        run: cd /rtb_web
+        run: ./rtb_web
       
       - name: 下载依赖
         run: npm install
