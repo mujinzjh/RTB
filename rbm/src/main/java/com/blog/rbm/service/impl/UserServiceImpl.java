@@ -11,7 +11,6 @@ import com.blog.rbm.exception.ExceptionCode;
 import com.blog.rbm.exception.ServiceException;
 import com.blog.rbm.mapper.UserMapper;
 import com.blog.rbm.service.UserService;
-import com.sun.istack.internal.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -66,5 +65,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,SysUser> implements 
         }
 
         return R.ok();
+    }
+
+    @Override
+    public R updateUser(SysUser user) {
+        userMapper.updateUser(user.getId(),user.getAvatar(),user.getDes(),user.getEmail(),user.getUsername(),System.currentTimeMillis());
+        return null;
     }
 }

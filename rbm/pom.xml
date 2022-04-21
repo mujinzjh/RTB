@@ -90,6 +90,19 @@
             <version>2.0.9</version>
         </dependency>
 
+        <!-- 七牛云-->
+        <dependency>
+            <groupId>com.qiniu</groupId>
+            <artifactId>qiniu-java-sdk</artifactId>
+            <version>7.2.7</version>
+        </dependency>
+        <!-- hutool工具类-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.3.3</version>
+        </dependency>
+
         <!--集成redis-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

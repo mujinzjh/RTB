@@ -8,6 +8,8 @@ class RbmApplicationTests {
 
     @Test
     void contextLoads() {
+        String os = System.getProperty("os.name").toLowerCase();
+        System.out.println(os);
     }
 
 }

@@ -9,4 +9,6 @@ public interface UserService extends IService<SysUser> {
     SysUser findByName(String username);
 
     R createUser(UserParam userParam);
+
+    R updateUser(SysUser user);
 }
