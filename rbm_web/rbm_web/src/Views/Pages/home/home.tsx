@@ -14,7 +14,6 @@ const UploadFile = (file: any) => {
   var formData = new FormData();
   formData.append('file', file);
   axios.post('/api/rbm/upload', formData).then((res: any) => {
-    console.log(res);
     imgSrc = res.data.result.filpath;
   })
 }
